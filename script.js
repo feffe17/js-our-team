@@ -38,6 +38,31 @@ const teamMembers = [
 ];
 
 const team = document.getElementById("team");
+const form = document.getElementById("formMembers");
+
+form.addEventListener("submit", function(event){
+  event.preventDefault();
+
+const name = document.getElementById('inputName4').value;
+const role = document.getElementById('inputRole').value;
+const email = document.getElementById('inputEmail4').value;
+const fileInput = document.getElementById('formFile');
+const img = fileInput.files[0] ? URL.createObjectURL(fileInput.files[0]) : '';
+
+const newMember = {
+  name: name,
+  role: role,
+  img: img,
+  email: email
+};
+
+teamMembers.push(newMember);
+
+const markup = generateMemberTeam(newMember);
+team.innerHTML += markup;
+
+form.reset();
+})
 
 
 let completeMarkup = ""
