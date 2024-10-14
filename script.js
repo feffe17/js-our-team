@@ -36,3 +36,45 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+const team = document.getElementById("team");
+
+let completeMarkup = ""
+
+for (let i = 0; i < teamMembers.length; i++) {
+  const member = teamMembers[i];
+  const markup = generateMemberTeam(member);
+  completeMarkup += markup;
+  
+}
+
+team.innerHTML = completeMarkup;
+
+
+
+
+
+
+
+
+
+
+
+
+function generateMemberTeam(member) {
+
+const {name, role, email, img} = member
+
+  return `
+  <div class="col-md-6 col-xl-4 d-flex text-start px-3 py-3">
+    <div class="col-3">
+      <img src="${img}" width="100%" height="100%" alt="" srcset="">
+    </div>
+    <div class="col-9 p-2 text-white bg-dark">
+      <h4>${name}</h4>
+      <p class="m-0">${role}</p>
+      <a href="">${email}</a>
+    </div>
+  </div>
+`
+}
