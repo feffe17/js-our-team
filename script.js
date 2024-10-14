@@ -39,6 +39,7 @@ const teamMembers = [
 
 const team = document.getElementById("team");
 
+
 let completeMarkup = ""
 
 for (let i = 0; i < teamMembers.length; i++) {
